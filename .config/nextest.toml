@@ -1,0 +1,56 @@
+# Nextest configuration
+# https://nexte.st/book/configuration.html
+
+[profile.default]
+# Number of tests to run in parallel
+test-threads = "num-cpus"
+
+# Show output for passing tests
+success-output = "never"
+
+# Show output for failing tests
+failure-output = "immediate-final"
+
+# Cancel test run on first failure
+fail-fast = false
+
+# Retry failed tests
+retries = 0
+
+# Time before a test is considered slow (in seconds)
+slow-timeout = { period = "60s" }
+
+# Maximum time a test can run (in seconds)
+# Tests exceeding this are terminated and marked as failed
+test-timeout = { period = "5m" }
+
+[profile.ci]
+# CI-specific settings
+test-threads = "num-cpus"
+success-output = "never"
+failure-output = "immediate-final"
+fail-fast = false
+retries = 1
+slow-timeout = { period = "30s" }
+test-timeout = { period = "10m" }
+
+[profile.local]
+# Local development settings
+test-threads = "num-cpus"
+success-output = "immediate"
+failure-output = "immediate"
+fail-fast = true
+retries = 0
+
+# Report configuration
+[profile.default.junit]
+# Store JUnit report for integration with IDEs and CI tools
+path = "target/nextest/default/junit.xml"
+
+# Filter configuration examples (commented out)
+# [profile.default.overrides]
+# Filter by test name pattern
+# [[profile.default.overrides]]
+# filter = 'test(test_)'
+# retries = 3
+# slow-timeout = { period = "120s" }

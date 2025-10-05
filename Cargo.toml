@@ -1,0 +1,23 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+edition = "2021"
+authors = ["{{authors}}"]
+description = "{{project-description}}"
+repository = "https://github.com/{{gh-username}}/{{project-name}}"
+license = "MIT OR Apache-2.0"
+keywords = []
+categories = []
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[dev-dependencies]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
