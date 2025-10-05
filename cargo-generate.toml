@@ -1,16 +1,6 @@
 [template]
-exclude = ["target/", ".git/", "Cargo.lock"]
+exclude = ["target/", ".git/", "Cargo.lock","cliff.toml"]
 
-[placeholders.gh-username]
-type = "string"
-prompt = "GitHub username?"
-
-[placeholders.project-description]
-type = "string"
-prompt = "Project description?"
-default = "A Rust project"
-
-[placeholders.authors]
-type = "string"
-prompt = "Author?"
-default = "Your Name <your.email@example.com>"
+[placeholders]
+gh-username = { type = "string", prompt = "GitHub username?" }
+project-description = { type = "string", prompt = "Project description?", default = "A Rust project" }
